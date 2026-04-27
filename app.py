@@ -1,9 +1,13 @@
 import streamlit as st # used to build the app UI (buttons, inputs, text)
 import numpy as np # used to handle numbers (arrays)
 import pickle # used to load the trained model
+import os # used for file path handling
 
+# Get the directory where app.py is located
+app_dir = os.path.dirname(os.path.abspath(__file__))
+model_path = os.path.join(app_dir, "model.pkl")
 
-model = pickle.load(open("model.pkl", "rb"))
+model = pickle.load(open(model_path, "rb"))
 ''' "model.pkl" -> file where your trained model is saved
 "rb" -> read binary mode
 pickle.load() -> loads the model into memory- > Soo now model is ready to predict '''
